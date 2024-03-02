@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  <test thread-count="5" name="Test">
+	  <groups>
+		  <define name="Testing">
+			  <include name="Smoke"></include>
+			  <include name="Sanity"></include>
+			  <!-- <exclude name="LoginPage"></exclude> 
+			  -> We can't use exclude within the define tag -->
+		  </define>
+		  
+		  <define name="AllPrograms">
+			  <include name="Regression"></include>
+		  </define>
+		  
+		  <define name="Pages">
+			  <include name="LoginPage"></include>
+			  <include name="HomePage"></include>
+			  <include name="CartPage"></include>
+			  <include name="PDPPage"></include>
+		  </define>
+		  
+		  <run>
+			  <include name="Smoke"></include>
+			  <include name="LoginPage"></include>
+		  </run>
+	  </groups>
+    <classes>
+      <class name="testng.groups.GroupsSample"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
